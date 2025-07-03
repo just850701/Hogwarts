@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>霍格華茲魔法與巫術學院 Hogwarts</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <script src="./js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    .nav-link {
+      color: antiquewhite;
+    }
+
+    .navbar .nav-link:hover {
+      color: #f0ad4e;
+    }
+
+    .navbar-nav>li {
+      margin-right: 20px;
+    }
+
+    .hero {
+      background-image: url('./img/hogwarts_cloudy.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0;
+    }
+
+    .hero-text {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid px-0 d-flex align-items-center">
+        <a class="navbar-brand ms-3" href="./index.html" style="height: 40px;">
+          <img src="./img/hogwarts_LOGO.png" alt="Hogwarts Logo" style="height: 100%;">
+        </a>
+        <ul class="navbar-nav mx-auto d-flex flex-row">
+          <li class="nav-item">
+            <a class="nav-link" href="./10_houses/houses.html">學院</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./20_professor/professor.html">師資</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./30_courses/courses.html">課程</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./40_activities/activities.html">活動</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./50_alumni/alumni.html">校友</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Hero 區 -->
+    <section class="hero d-flex justify-content-center align-items-center text-center text-light">
+      <div class="hero-text">
+        <h1 class="fw-bold text-warning">霍格華茲</h1>
+        <h3 class="text-warning mb-3">魔法與巫術學院</h3>
+        <p>準備踏上魔法旅程了嗎？加入我們，成為下一位偉大的巫師或女巫！</p>
+        <p class="fst-italic">「別擔心，你不會被分到史萊哲林……也許。」</p>
+      </div>
+    </section>
+    
+    <!-- 優勢區塊 -->
+    <div class="container py-5 my-5">
+      <div class="row align-items-center mb-5">
+        <div class="col-md-7 text-center mb-3 mb-md-0" data-aos="zoom-in-right">
+          <img src="./img/Table2.jpg" alt="Hogwarts Castle" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-5 text-center text-md-start text-light">
+          <h3 class="text-warning mb-3">歐洲三大魔法學校之一</h3>
+          <p>百年歷史傳承，從梅林到麻瓜都耳熟能詳。想學魔法？來霍格華茲準沒錯！</p>
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-5 flex-md-row-reverse">
+        <div class="col-md-7 text-center mb-3 mb-md-0" data-aos="zoom-in-left">
+          <img src="./img/hogwarts_night.jpg" alt="Hogwarts Protection" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-5 text-center text-md-start text-light">
+          <h3 class="text-warning mb-3">受魔法保護的安全校園</h3>
+          <p>被強大防護咒環繞，就算你想半夜溜去禁忌森林，也只會被抓回寢室寫悔過書。</p>
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-5">
+        <div class="col-md-7 text-center mb-3 mb-md-0" data-aos="zoom-in-right">
+          <img src="./img/l_potion.PNG" alt="Hogwarts Teachers" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-5 text-center text-md-start text-light">
+          <h3 class="text-warning mb-3">優質師資與多元課程</h3>
+          <p>從變形學到闇黑防禦術，課程豐富又實用（對付馬份也適用）。世界頂尖教授坐鎮，保證學術含金量！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 報名表單 -->
+    <div class="container d-block mx-auto my-5" style="max-width: 500px;">
+      <div class="text-center text-warning mb-3">
+        <h5>立即報名，成為霍格華茲的一員！</h5>
+      </div>
+      <div class="card bg-opacity-75">
+        <div class="card-body text-center text-warning">
+          <p>姓名：</p>
+          <input type="text" class="form-control mb-3" placeholder="請輸入您的姓名">
+          <p>電話：</p>
+          <input type="tel" class="form-control mb-3" placeholder="09xx-xxx-xxx">
+          <p>電子郵件：</p>
+          <input type="email" class="form-control mb-3" placeholder="xxxxxx@gmail.com">
+          <p>留言：</p>
+          <textarea class="form-control mb-3" placeholder="想對我們說的話..."></textarea>
+        </div>
+        <div class="card-footer text-center m-3">
+          <button type="submit" class="btn btn-primary">提交報名</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br><br><br>
+
+  <a href="#" class="back-to-top" data-aos="fade-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+      class="bi bi-arrow-up-circle text-white text-opacity-75" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+    </svg>
+  </a>
+
+  <footer class="text-center text-light py-4">
+    <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
+    <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
