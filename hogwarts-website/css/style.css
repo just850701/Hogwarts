@@ -1,6 +1,10 @@
 body {
   background-color: #01081e;
   color: #f5f5f5;
+  /* background: url('../img/DeepBlueSky2.png') repeat; */
+  /* background-size: cover; 或 auto 視需求調整 */
+  /* 可搭配漸層 overlay 增加質感 */
+  /* position: relative; */
 }
 
 .center-box {
@@ -15,17 +19,6 @@ body {
   border-width: 2px 3px 2px 5px;
   transform: rotate(2deg);
   transform: rotate(-2deg); */
-}
-
-.bg-cover {
-  background-image: url('你的圖片路徑.jpg');
-  background-size: cover;
-  /* 讓圖片覆蓋整個區塊 */
-  background-position: center;
-  /* 置中顯示 */
-  background-repeat: no-repeat;
-  /* 不重複 */
-  min-height: 100vh;
 }
 
 .custom-padding {
@@ -43,4 +36,14 @@ body {
 
 .back-to-top:hover {
   background-color: #2c3b6d;
+}
+
+.magic-title {
+  text-shadow: 0 0 10px gold, 0 0 10px orange;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px gold, 0 0 10px orange; }
+  to   { text-shadow: 0 0 20px gold, 0 0 10px orange; }
 }
