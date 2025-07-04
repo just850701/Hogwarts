@@ -9,20 +9,9 @@
   <script src="./js/bootstrap.bundle.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
   <style>
-    .nav-link {
-      color: antiquewhite;
-    }
-
-    .navbar .nav-link:hover {
-      color: #f0ad4e;
-    }
-
-    .navbar-nav>li {
-      margin-right: 20px;
-    }
-
     .hero {
       background-image: url('./img/hogwarts_cloudy.jpg');
       background-size: cover;
@@ -138,6 +127,35 @@
     <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
     <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
   </footer>
+
+  <!-- 背景星星動畫 -->
+  <div id="particles-js"></div>
+  <script>
+    tsParticles.load("particles-js", {
+      background: {
+        color: "#01081e"  // 背景深藍色
+      },
+      particles: {
+        number: { value: 50 },
+        color: { value: "#FFD700" }, // 金色
+        shape: { type: "star" },
+        opacity: { value: 0.8 },
+        size: { value: 2 },
+        move: {
+          enable: true,
+          speed: 0.3, // 緩慢移動
+          direction: "none",
+          random: true,
+          straight: false
+        }
+      },
+      fullScreen: {
+        enable: true,
+        zIndex: -1 // 讓粒子在最底層
+      }
+    });
+  </script>
+
 </body>
 
 </html>

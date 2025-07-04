@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0 d-flex align-items-center">
+                <a class="navbar-brand ms-3" href="../index.html" style="height: 40px;">
+                    <img src="../img/hogwarts_LOGO.png" alt="Hogwarts Logo" style="height: 100%;">
+                </a>
+                <ul class="navbar-nav mx-auto d-flex flex-row" style="list-style: none;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../10_houses/houses.html">學院</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../20_professor/professor.html">師資</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../30_courses/courses.html">課程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../40_activities/activities.html">活動</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../50_alumni/alumni.html">校友</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-light mx-4" href="../60_login/login.html">登入</a>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="login-card text-center d-block mx-auto my-5">
+            <h2 class="mb-4">霍格華茲學生登入</h2>
+            <form>
+                <div class="mb-3 text-start">
+                    <label for="studentID" class="form-label">學號</label>
+                    <input type="text" class="form-control" id="studentID" placeholder="輸入你的學號">
+                </div>
+                <div class="mb-4 text-start">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" class="form-control" id="password" placeholder="輸入密碼">
+                </div>
+                <button type="submit" class="btn btn-gold w-100">登入</button>
+            </form>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    </main>
+
+    <a href="#" class="back-to-top" data-aos="fade-up">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+            class="bi bi-arrow-up-circle text-white text-opacity-75" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+        </svg>
+    </a>
+
+    <footer class="text-center text-light py-4">
+        <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
+        <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>
