@@ -9,6 +9,7 @@
     <script src="../js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 </head>
 
@@ -46,7 +47,7 @@
     <main>
 
         <div class="login-card text-center d-block mx-auto my-5">
-            <h2 class="mb-4">霍格華茲學生登入</h2>
+            <h2 class="mb-4">在校學生登入</h2>
             <form>
                 <div class="mb-3 text-start">
                     <label for="studentID" class="form-label">學號</label>
@@ -64,6 +65,8 @@
 
     </main>
 
+    <br><br><br>
+    
     <a href="#" class="back-to-top" data-aos="fade-up">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
             class="bi bi-arrow-up-circle text-white text-opacity-75" viewBox="0 0 16 16">
@@ -76,6 +79,34 @@
         <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
         <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
     </footer>
+
+    <!-- 背景星星動畫 -->
+    <div id="particles-js"></div>
+    <script>
+        tsParticles.load("particles-js", {
+            background: {
+                color: "#10141b"  // 背景深藍色
+            },
+            particles: {
+                number: { value: 50 },
+                color: { value: "#d2aa6b" }, // 金色
+                shape: { type: "star" },
+                opacity: { value: 0.8 },
+                size: { value: 2 },
+                move: {
+                    enable: true,
+                    speed: 0.3, // 緩慢移動
+                    direction: "none",
+                    random: true,
+                    straight: false
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // 讓粒子在最底層
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>

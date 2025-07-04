@@ -9,21 +9,14 @@
     <script src="../js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
     <style>
-        .nav-link {
-            color: antiquewhite;
-        }
-
-        .navbar .nav-link:hover {
-            color: #f0ad4e;
-        }
-
-        .navbar-nav>li {
-            margin-right: 20px;
+        .hero {
+            background-image: url('../img/bg_forest.jpg');
         }
     </style>
+
 </head>
 
 <body>
@@ -58,90 +51,104 @@
     </header>
 
     <main>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <img src="../img/Table2.jpg" alt="餐廳" class="py-3" style="width: 80%; height: auto;">
-        </div>
-        <div class="align-items-center text-center">
-            <h1 class="py-3 text-warning">活動介紹</h1>
-        </div>
 
-        <div class="align-items-center text-center custom-padding">
-            <h4>
-                霍格華茲舉辦不同活動讓學生參與。
-            </h4>
-        </div>
+        <!-- Hero 區 -->
+        <section class="hero d-flex justify-content-center align-items-center text-center text-light">
+            <div class="fog"></div>
+            <div class="hero-text">
+                <h1 class="fw-bold text-warning py-2">活動介紹</h1>
+                <p>霍格華茲舉辦不同活動讓學生參與。</p>
+                <p class="fst-italic">xxxxxxxxx</p>
+            </div>
+        </section>
 
-        <br><br><br>
-        <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" data-aos="fade-down"
-                data-aos-easing="linear" data-aos-duration="1500">
-                <img src="../img/quidditch2.jpg" alt="魁地奇" class="py-3" style="height: auto; width: 70%;">
+        <!-- 主體 -->
+
+        <br><br><br><br><br>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center" data-aos="fade-down" data-aos-easing="linear"
+                data-aos-duration="1500">
+                <div class="col-md-6 d-flex justify-content-center mb-4">
+                    <div class="card bg-transparent border-0 d-flex flex-column align-items-center text-center">
+                        <img src="../img/quidditch2.jpg" alt="魁地奇" class="py-3"
+                            style="width: 100%; max-width: 700px; height: auto;">
+                        <div class="card-body custom-padding">
+                            <h4 class="card-title text-warning">魁地奇球賽</h4>
+                            <h5 class="card-text text-white py-3">
+                                霍格華茲每年都舉辦精彩的學院魁地奇聯賽，四大學院爭奪榮耀與冠軍盃。球場上金探子的閃爍與疾風般的飛天掃帚，總是令全校師生熱血沸騰。</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center mb-4">
+                    <div class="card bg-transparent border-0 d-flex flex-column align-items-center text-center">
+                        <img src="../img/dragon.jpg" alt="三巫鬥法大賽" class="py-3"
+                            style="width: 100%; max-width: 700px; height: auto;">
+                        <div class="card-body custom-padding">
+                            <h4 class="card-title text-warning">三巫鬥法大賽</h4>
+                            <h5 class="card-text text-white py-3">
+                                三巫鬥法大賽是魔法世界的傳奇比賽，由三所著名魔法學校選出的勇士參加。危險卻引人入勝的魔法挑戰，不只考驗實力，更考驗勇氣與智慧。</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body  text-center align-items-center custom-padding">
-                <h4 class="card-title text-warning">魁地奇球賽</h4>
-                <h5 class="card-text text-white py-3 ">霍格華茲每年都舉辦精彩的學院魁地奇聯賽，四大學院爭奪榮耀與冠軍盃。球場上金探子的閃爍與疾風般的飛天掃帚，總是令全校師生熱血沸騰。
-                </h5>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center" data-aos="fade-down" data-aos-easing="linear"
+                data-aos-duration="1500">
+                <div class="col-md-6 d-flex justify-content-center mb-4">
+                    <div class="card bg-transparent border-0 d-flex flex-column align-items-center text-center">
+                        <img src="../img/activity_1.jpg" alt="舞會" class="py-3"
+                            style="width: 100%; max-width: 700px; height: auto;">
+                        <div class="card-body custom-padding">
+                            <h4 class="card-title text-warning">舞會</h4>
+                            <h5 class="card-text text-white py-3">
+                                特別節慶如三巫鬥法大賽期間，霍格華茲會舉辦盛大的耶誕舞會。學生們換上華麗禮服，伴隨音樂與燭光起舞，留下屬於青春的魔法回憶。</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center mb-4">
+                    <div class="card bg-transparent border-0 d-flex flex-column align-items-center text-center">
+                        <img src="../img/chrismas.PNG" alt="聖誕節" class="py-3"
+                            style="width: 100%; max-width: 700px; height: auto;">
+                        <div class="card-body custom-padding">
+                            <h4 class="card-title text-warning">聖誕晚宴</h4>
+                            <h5 class="card-text text-white py-3">
+                                每年冬季，霍格華茲大廳燈火通明，盛大舉辦溫馨浪漫的聖誕晚宴。懸掛著會飛的蠟燭與雪花，滿桌魔法甜點，讓人暫時忘卻寒冬的嚴酷。</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center" data-aos="fade-down" data-aos-easing="linear"
+                data-aos-duration="1500">
+                <div class="col-md-6 d-flex justify-content-center mb-4">
+                    <div class="card bg-transparent border-0 d-flex flex-column align-items-center text-center">
+                        <img src="../img/Hogwarts-halloween.png" alt="萬聖節" class="py-3"
+                            style="width: 100%; max-width: 700px; height: auto;">
+                        <div class="card-body custom-padding">
+                            <h4 class="card-title text-warning">萬聖節宴會</h4>
+                            <h5 class="card-text text-white py-3">
+                                每到十月三十一日，霍格華茲大廳就會被巨大的南瓜燈與飛舞的蝙蝠點綴得詭異又熱鬧。師生們享用豐盛大餐，享受一夜奇幻與神秘。</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center mb-4">
+                    <div class="card bg-transparent border-0 d-flex flex-column align-items-center text-center">
+                        <img src="../img/Hogwarts-halloween.png" alt="萬聖節" class="py-3"
+                            style="width: 100%; max-width: 700px; height: auto;">
+                        <div class="card-body custom-padding">
+                            <h4 class="card-title text-warning">萬聖節宴會</h4>
+                            <h5 class="card-text text-white py-3">
+                                每到十月三十一日，霍格華茲大廳就會被巨大的南瓜燈與飛舞的蝙蝠點綴得詭異又熱鬧。師生們享用豐盛大餐，享受一夜奇幻與神秘。</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <br><br><br>
-        <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" data-aos="fade-down"
-                data-aos-easing="linear" data-aos-duration="1500">
-                <img src="../img/dragon.jpg" alt="三巫鬥法大賽" class="py-3" style="height: auto; width: 70%;">
-            </div>
-            <div class="card-body  text-center align-items-center custom-padding">
-                <h4 class="card-title text-warning">三巫鬥法大賽</h4>
-                <h5 class="card-text text-white py-3 ">三巫鬥法大賽是魔法世界的傳奇比賽，由三所著名魔法學校選出的勇士參加。危險卻引人入勝的魔法挑戰，不只考驗實力，更考驗勇氣與智慧。
-                </h5>
-            </div>
-        </div>
-        <br><br><br>
-        <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" data-aos="fade-down"
-                data-aos-easing="linear" data-aos-duration="1500">
-                <img src="../img/activity_1.jpg" alt="舞會" class="py-3" style="height: auto; width: 70%;">
-            </div>
-            <div class="card-body  text-center align-items-center custom-padding">
-                <h4 class="card-title text-warning">舞會</h4>
-                <h5 class="card-text text-white py-3 ">特別節慶如三巫鬥法大賽期間，霍格華茲會舉辦盛大的耶誕舞會。學生們換上華麗禮服，伴隨音樂與燭光起舞，留下屬於青春的魔法回憶。
-                </h5>
-            </div>
-        </div>
-        <br><br><br>
-        <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" data-aos="fade-down"
-                data-aos-easing="linear" data-aos-duration="1500">
-                <img src="../img/Quidditch.PNG" alt="分類帽" class="py-3" style="height: auto; width: 70%;">
-            </div>
-            <div class="card-body  text-center align-items-center custom-padding">
-                <h4 class="card-title text-warning">分院儀式</h4>
-                <h5 class="card-text text-white py-3 ">
-                    生入學的第一晚，必須戴上古老的分類帽，決定是進入葛來分多、史萊哲林、雷文克勞還是赫夫帕夫。這一刻既緊張又充滿期待，決定未來的學院生活。</h5>
-            </div>
-        </div>
-        <br><br><br>
-        <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" data-aos="fade-down"
-                data-aos-easing="linear" data-aos-duration="1500">
-                <img src="../img/chrismas.PNG" alt="聖誕節" class="py-3" style="height: auto; width: 70%;">
-            </div>
-            <div class="card-body  text-center align-items-center custom-padding">
-                <h4 class="card-title text-warning">聖誕晚宴</h4>
-                <h5 class="card-text text-white py-3 ">每年冬季，霍格華茲大廳燈火通明，盛大舉辦溫馨浪漫的聖誕晚宴。懸掛著會飛的蠟燭與雪花，滿桌魔法甜點，讓人暫時忘卻寒冬的嚴酷。
-                </h5>
-            </div>
-        </div>
-        <br><br><br>
-        <div>
-            <div class="container-fluid d-flex justify-content-center align-items-center" data-aos="fade-down"
-                data-aos-easing="linear" data-aos-duration="1500">
-                <img src="../img/Hogwarts-halloween.png" alt="萬聖節" class="py-3" style="height: auto; width: 70%;">
-            </div>
-            <div class="card-body  text-center align-items-center custom-padding">
-                <h4 class="card-title text-warning">萬聖節宴會</h4>
-                <h5 class="card-text text-white py-3 ">每到十月三十一日，霍格華茲大廳就會被巨大的南瓜燈與飛舞的蝙蝠點綴得詭異又熱鬧。師生們享用豐盛大餐，享受一夜奇幻與神秘。</h5>
-            </div>
-        </div>
+
 
     </main>
 
@@ -159,7 +166,35 @@
         <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
         <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
     </footer>
-    
+
+    <!-- 背景星星動畫 -->
+    <div id="particles-js"></div>
+    <script>
+        tsParticles.load("particles-js", {
+            background: {
+                color: "#10141b"  // 背景深藍色
+            },
+            particles: {
+                number: { value: 50 },
+                color: { value: "#d2aa6b" }, // 金色
+                shape: { type: "star" },
+                opacity: { value: 0.8 },
+                size: { value: 2 },
+                move: {
+                    enable: true,
+                    speed: 0.3, // 緩慢移動
+                    direction: "none",
+                    random: true,
+                    straight: false
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // 讓粒子在最底層
+            }
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();

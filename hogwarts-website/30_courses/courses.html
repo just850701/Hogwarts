@@ -10,21 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
     <style>
-        .nav-link {
-            color: antiquewhite;
-        }
-
-        .navbar .nav-link:hover {
-            color: #f0ad4e;
-        }
-
-        .navbar-nav>li {
-            margin-right: 20px;
+        .hero {
+            background-image: url('../img/bg_potion.jpg');
         }
     </style>
+
 </head>
 
 <body>
@@ -59,20 +52,20 @@
     </header>
 
     <main>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <img src="../img/inclass.PNG" alt="上課" class="py-3" style="width: 60%; height: auto;">
-        </div>
-        <div class="align-items-center text-center">
-            <h1 class="py-3 text-warning">課程介紹</h1>
-        </div>
 
-        <div class="align-items-center text-center custom-padding">
-            <h4>
-                霍格華茲的不同課程可以從不同角度培養學生的魔法能力。
-            </h4>
-        </div>
+        <!-- Hero 區 -->
+        <section class="hero d-flex justify-content-center align-items-center text-center text-light">
+            <div class="fog"></div>
+            <div class="hero-text">
+                <h1 class="fw-bold text-warning py-2">課程介紹</h1>
+                <p>霍格華茲的不同課程可以從不同角度培養學生的魔法能力。</p>
+                <p class="fst-italic">xxxxxxxxx</p>
+            </div>
+        </section>
 
-        <br><br><br>
+        <!-- 主體 -->
+
+        <br><br><br><br><br>
         <div class="d-flex gap-5 flex-wrap justify-content-center custom-padding">
             <div class="card img-fluid hvr-grow" style="width:350px">
                 <img class="card-img-top" src="../img/l_Patronus_Charm.PNG" alt="Card image">
@@ -148,6 +141,34 @@
         <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
         <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
     </footer>
+
+    <!-- 背景星星動畫 -->
+    <div id="particles-js"></div>
+    <script>
+        tsParticles.load("particles-js", {
+            background: {
+                color: "#10141b"  // 背景深藍色
+            },
+            particles: {
+                number: { value: 50 },
+                color: { value: "#d2aa6b" }, // 金色
+                shape: { type: "star" },
+                opacity: { value: 0.8 },
+                size: { value: 2 },
+                move: {
+                    enable: true,
+                    speed: 0.3, // 緩慢移動
+                    direction: "none",
+                    random: true,
+                    straight: false
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // 讓粒子在最底層
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>

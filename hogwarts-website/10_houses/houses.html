@@ -10,21 +10,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-
-    <style>
-        .nav-link {
-            color: antiquewhite;
-        }
-
-        .navbar .nav-link:hover {
-            color: #f0ad4e;
-        }
-
-        .navbar-nav>li {
-            margin-right: 20px;
-        }
-    </style>
 </head>
 
 <body>
@@ -60,23 +47,22 @@
     </header>
 
     <main>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <img src="../img/houses-2.png" alt="學院" class="py-3" style="width: 70%; height: auto;">
-        </div>
-        <div class="align-items-center text-center">
-            <h1 class="py-3 text-warning">學院介紹</h1>
-        </div>
-        <div class="align-items-center text-center">
-            <h3 class="py-2 text-warning">「我們的內部必須緊密團結，不然一切就會從內部瓦解。」——分類帽</h3>
-        </div>
 
-        <div class="align-items-center text-center">
-            <h4 class="py-2">霍格華茲的學生被分入四個學院：葛萊分多、赫夫帕夫、雷文克勞和史萊哲林。</h4>
-        </div>
+        <!-- Hero 區 -->
+        <section class="hero d-flex justify-content-center align-items-center text-center text-light">
+            <div class="fog"></div>
+            <div class="hero-text">
+                <h1 class="fw-bold text-warning py-2">學院介紹</h1>
+                <p>霍格華茲的學生被分入四個學院：葛萊分多、赫夫帕夫、雷文克勞和史萊哲林。</p>
+                <p class="fst-italic">「我們的內部必須緊密團結，不然一切就會從內部瓦解。」——分類帽</p>
+            </div>
+        </section>
 
-        <br><br><br>
+        <!-- 主體 -->
+        
+        <br><br><br><br><br>
 
-        <div class="d-flex gap-5 flex-wrap justify-content-center">
+        <div class="d-flex gap-5 flex-wrap justify-content-center custom-padding">
             <div class="card img-fluid hvr-grow" style="width:250px">
                 <img class="card-img-top" src="../img/gryffindor.png" alt="Card image">
                 <div class="card-body">
@@ -135,6 +121,34 @@
         <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
         <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
     </footer>
+
+    <!-- 背景星星動畫 -->
+    <div id="particles-js"></div>
+    <script>
+        tsParticles.load("particles-js", {
+            background: {
+                color: "#10141b"  // 背景深藍色
+            },
+            particles: {
+                number: { value: 50 },
+                color: { value: "#d2aa6b" }, // 金色
+                shape: { type: "star" },
+                opacity: { value: 0.8 },
+                size: { value: 2 },
+                move: {
+                    enable: true,
+                    speed: 0.3, // 緩慢移動
+                    direction: "none",
+                    random: true,
+                    straight: false
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // 讓粒子在最底層
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>

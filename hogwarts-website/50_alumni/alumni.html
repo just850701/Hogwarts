@@ -9,21 +9,14 @@
     <script src="../js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
     <style>
-        .nav-link {
-            color: antiquewhite;
-        }
-
-        .navbar .nav-link:hover {
-            color: #f0ad4e;
-        }
-
-        .navbar-nav>li {
-            margin-right: 20px;
+        .hero {
+            background-image: url('../img/bg_map.jpg');
         }
     </style>
+
 </head>
 
 <body>
@@ -59,20 +52,20 @@
     </header>
 
     <main>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <img src="../img/t_Dumbledore's Army.jpg" alt="上課" class="py-3" style="width: 70%; height: auto;">
-        </div>
-        <div class="align-items-center text-center">
-            <h1 class="py-3 text-warning">校友回饋</h1>
-        </div>
 
-        <div class="align-items-center text-center custom-padding">
-            <h4>
-                畢業校友的回饋。
-            </h4>
-        </div>
+        <!-- Hero 區 -->
+        <section class="hero d-flex justify-content-center align-items-center text-center text-light">
+            <div class="fog"></div>
+            <div class="hero-text">
+                <h1 class="fw-bold text-warning py-2">校友回饋</h1>
+                <p>畢業校友的回饋。</p>
+                <p class="fst-italic">xxxxxxxxx</p>
+            </div>
+        </section>
 
-        <br><br><br>
+        <!-- 主體 -->
+        
+        <br><br><br><br><br>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8">
@@ -172,11 +165,39 @@
                 d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
         </svg>
     </a>
-    
+
     <footer class="text-center text-light py-4">
         <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
         <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
     </footer>
+
+    <!-- 背景星星動畫 -->
+    <div id="particles-js"></div>
+    <script>
+        tsParticles.load("particles-js", {
+            background: {
+                color: "#10141b"  // 背景深藍色
+            },
+            particles: {
+                number: { value: 50 },
+                color: { value: "#d2aa6b" }, // 金色
+                shape: { type: "star" },
+                opacity: { value: 0.8 },
+                size: { value: 2 },
+                move: {
+                    enable: true,
+                    speed: 0.3, // 緩慢移動
+                    direction: "none",
+                    random: true,
+                    straight: false
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // 讓粒子在最底層
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
