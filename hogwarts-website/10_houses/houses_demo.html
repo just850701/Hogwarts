@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學院</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0 d-flex align-items-center">
+                <a class="navbar-brand ms-3" href="../index.html" style="height: 40px;">
+                    <img src="../img/hogwarts_LOGO.png" alt="Hogwarts Logo" style="height: 100%;">
+                </a>
+                <ul class="navbar-nav mx-auto d-flex flex-row" style="list-style: none;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../10_houses/houses.html">學院</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../20_professor/professor.html">師資</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../30_courses/courses.html">課程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../40_activities/activities.html">活動</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../50_alumni/alumni.html">交通</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-light mx-4" href="../60_login/login.html">分院測驗</a>
+
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <!-- 左側學院選單 -->
+        <div class="house-sidebar">
+            <img src="../img/gryffindor.png" alt="葛萊分多" onclick="switchHouse('gryffindor')">
+            <img src="../img/hufflepuff.png" alt="赫夫帕夫" onclick="switchHouse('hufflepuff')">
+            <img src="../img/ravenclaw.png" alt="雷文克勞" onclick="switchHouse('ravenclaw')">
+            <img src="../img/slytherin.png" alt="史萊哲林" onclick="switchHouse('slytherin')">
+        </div>
+
+        <!-- 葛萊分多 -->
+        <div class="house-content gryffindor active" id="gryffindor-section">
+            <div class="container py-4">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-7 text-center">
+                        <img src="../img/h_gryffindor.png" class="main-image" alt="葛萊分多圖像">
+                    </div>
+                    <div class="col-12 col-md-5 text-center text-md-start">
+                        <h1 style="color: #c90f0f;">葛萊分多 Gryffindor</h1>
+
+                        <p>
+                            <li>
+                                創辦者：高錐客.葛萊分多
+                            </li>
+                            <li>
+                                特質：膽識氣魄、勇氣、豪爽、騎士精神、決心、堅強
+                            </li>
+                            <li>
+                                象徵動物：獅
+                            </li>
+                            <li>
+                                代表顏色：紅、金色
+                            </li>
+                            <li>
+                                學院幽靈：差點沒頭的尼克（尼古拉斯.波平頓 爵士）
+                            </li>
+                            <li>
+                                傳承物：葛萊分多寶劍
+                            </li>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 赫夫帕夫 -->
+        <div class="house-content hufflepuff" id="hufflepuff-section">
+            <div class="container py-4">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-7 text-center">
+                        <img src="../img/h_hufflepuff.png" class="main-image" alt="赫夫帕夫圖像">
+                    </div>
+                    <div class="col-12 col-md-5 text-center text-md-start">
+                        <h1 style="color: #EEE117;">赫夫帕夫 Hufflepuff</h1>
+                        <p>
+                            <li>
+                                創辦者：海加.赫夫帕夫
+                            </li>
+                            <li>
+                                特質：友善忠誠、耐心勤奮、寬容接納、公平正直
+                            </li>
+                            <li>
+                                象徵動物：獾
+                            </li>
+                            <li>
+                                代表顏色：黃、黑色
+                            </li>
+                            <li>
+                                學院幽靈：胖修士
+                            </li>
+                            <li>
+                                傳承物：金杯
+                            </li>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 雷文克勞 -->
+        <div class="house-content ravenclaw" id="ravenclaw-section">
+            <div class="container py-4">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-7 text-center">
+                        <img src="../img/h_ravenclaw.png" class="main-image" alt="雷文克勞圖像">
+                    </div>
+                    <div class="col-12 col-md-5 text-center text-md-start">
+                        <h1 style="color: #2130ff;">雷文克勞 Ravenclaw</h1>
+                        <p>
+                            <li>
+                                創辦者：羅威娜.雷文克勞
+                            </li>
+                            <li>
+                                特質：智慧博學、創造力、寬容慈愛、心思敏捷
+                            </li>
+                            <li>
+                                象徵動物：鷹
+                            </li>
+                            <li>
+                                代表顏色：藍、青銅色
+                            </li>
+                            <li>
+                                學院幽靈：灰女士（羅威娜.雷文克勞之女:海蓮娜.雷文克勞）
+                            </li>
+                            <li>
+                                傳承物：冠冕
+                            </li>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 史萊哲林 -->
+        <div class="house-content slytherin" id="slytherin-section">
+            <div class="container py-4">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-7 text-center">
+                        <img src="../img/h_slytherin.png" class="main-image" alt="史萊哲林圖像">
+                    </div>
+                    <div class="col-12 col-md-5 text-center text-md-start">
+                        <h1 style="color: #268531;">史萊哲林 Slytherin</h1>
+                        <p>
+                            <li>
+                                創辦者：薩拉札.史萊哲林
+                            </li>
+                            <li>
+                                特質：足智多謀、血統純血或半血、詭譎狡詐、野心勃勃
+                            </li>
+                            <li>
+                                象徵動物：蛇
+                            </li>
+                            <li>
+                                代表顏色：綠、銀色
+                            </li>
+                            <li>
+                                學院幽靈：血腥男爵（巴羅）
+                            </li>
+                            <li>
+                                傳承物：小金匣
+                            </li>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <br><br><br>
+    <a href="#" class="back-to-top" data-aos="fade-up">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+            class="bi bi-arrow-up-circle text-white text-opacity-75" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+        </svg>
+    </a>
+
+    <footer class="text-center text-light py-4">
+        <p>© 2025 霍格華茲魔法學校. All rights reserved.</p>
+        <p class="fst-italic">「別忘了檢查你的貓頭鷹郵件信箱！」</p>
+    </footer>
+
+
+    <div id="particles-js"></div>
+    <script>
+        // 背景星星動畫
+        tsParticles.load("particles-js", {
+            background: {
+                color: "#10141b"  // 背景深藍色
+            },
+            particles: {
+                number: { value: 50 },
+                color: { value: "#d2aa6b" }, // 金色
+                shape: { type: "star" },
+                opacity: { value: 0.8 },
+                size: { value: 2 },
+                move: {
+                    enable: true,
+                    speed: 0.3, // 緩慢移動
+                    direction: "none",
+                    random: true,
+                    straight: false
+                }
+            },
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // 讓粒子在最底層
+            }
+        });
+
+        //學院切換
+        function switchHouse(houseName) {
+            document.querySelectorAll('.house-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelector('.' + houseName).classList.add('active');
+        }
+
+        // 頁面加載時根據網址片段啟用對應學院
+        window.addEventListener('DOMContentLoaded', () => {
+            const fragment = window.location.hash.substring(1); // e.g., hufflepuff-section
+            if (fragment) {
+                const mapping = {
+                    'gryffindor-section': 'gryffindor',
+                    'hufflepuff-section': 'hufflepuff',
+                    'ravenclaw-section': 'ravenclaw',
+                    'slytherin-section': 'slytherin'
+                };
+                const house = mapping[fragment];
+                if (house) {
+                    switchHouse(house); // 呼叫你原本切換學院的函式
+                    // 平滑滾動至該區
+                    setTimeout(() => {
+                        document.getElementById(fragment).scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            }
+        });
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

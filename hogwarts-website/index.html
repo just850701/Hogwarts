@@ -16,7 +16,7 @@
       background-image: url('./img/hogwarts_cloudy.jpg');
     }
   </style>
-  
+
 </head>
 
 <body>
@@ -40,10 +40,10 @@
             <a class="nav-link" href="./40_activities/activities.html">活動</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./50_alumni/alumni.html">校友</a>
+            <a class="nav-link" href="./50_alumni/alumni.html">交通</a>
           </li>
         </ul>
-        <a class="btn btn-outline-light mx-4" href="./60_login/login.html">登入</a>
+        <a class="btn btn-outline-light mx-4" href="./60_login/login.html">分院測驗</a>
       </div>
     </nav>
   </header>
@@ -60,60 +60,174 @@
       </div>
     </section>
 
-    <!-- 優勢區塊 -->
-    <div class="container py-5 my-5">
-      <div class="row align-items-center mb-5">
-        <div class="col-md-7 text-center mb-3 mb-md-0" data-aos="zoom-in-right">
-          <img src="./img/hogwarts_night.jpg" alt="Hogwarts Castle" class="img-fluid rounded shadow">
+    <div class="magic-divider"></div>
+
+    <!-- 📆 最新公告 / 活動輪播 -->
+    <section class="container my-5 text-light">
+      <h2 class="text-warning text-center mb-4">活動預告</h2>
+
+      <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img src="./img/a_magical_duel.png" class="d-block w-100 rounded shadow img-fluid" alt="Dueling Event"
+              style="object-fit: contain; max-height: 550px;">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>⚔️ 雙人巫師對決 – 即將開打！</h5>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="./img/a_Snapeclass.png" class="d-block w-100 rounded shadow img-fluid" alt="Dueling Event"
+              style="object-fit: contain; max-height: 550px;">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>🧪 魔藥工作坊開放報名，名額有限！</h5>
+            </div>
+          </div>
+
         </div>
-        <div class="col-md-5 text-center text-md-start text-light">
-          <h3 class="text-warning mb-3">歐洲三大魔法學校之一</h3>
-          <p>百年歷史傳承，從梅林到麻瓜都耳熟能詳。想學魔法？來霍格華茲準沒錯！</p>
-        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
 
-      <div class="row align-items-center mb-5 flex-md-row-reverse">
-        <div class="col-md-7 text-center mb-3 mb-md-0" data-aos="zoom-in-left">
-          <img src="./img/d_Gryffindor Dormitory_5.jpg" alt="Hogwarts Protection" class="img-fluid rounded shadow">
+
+
+      <!-- 查看更多活動按鈕 -->
+      <div class="text-center mt-4">
+        <a href="./40_activities/activities.html" class="btn btn-outline-warning btn-glow">
+          🔍 查看歷年活動
+        </a>
+      </div>
+    </section>
+
+
+    <div class="magic-divider"></div>
+
+
+    <!-- 🎓 校友見證卡片 -->
+    <section class="container my-5 text-light">
+      <h2 class="text-warning text-center mb-4">校友見證</h2>
+      <div class="d-flex justify-content-center flex-wrap gap-4">
+
+        <!-- 哈利波特 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front p-2 rounded text-center bg-dark">
+              <img src="./img/p_harrypotter.jpg" alt="哈利波特" class="img-fluid rounded"
+                style="height: 150px; object-fit: cover;">
+              <h6 class="mt-2">哈利・波特</h6>
+            </div>
+            <div
+              class="flip-card-back bg-warning text-dark p-3 rounded d-flex align-items-center justify-content-center">
+              <p class="mb-0 text-center">「魔法之外，我也學會如何閃避冷嘲熱諷！」</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-5 text-center text-md-start text-light">
-          <h3 class="text-warning mb-3">受魔法保護的安全校園</h3>
-          <p>被強大防護咒環繞，以及溫馨舒適的寢室，安穩好眠就像在家一樣。</p>
+
+        <!-- 紐特 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front p-2 rounded text-center bg-dark">
+              <img src="./img/p_Newton.jpg" alt="紐特・斯卡曼德" class="img-fluid rounded"
+                style="height: 150px; object-fit: cover;">
+              <h6 class="mt-2">紐特・斯卡曼德</h6>
+            </div>
+            <div
+              class="flip-card-back bg-warning text-dark p-3 rounded d-flex align-items-center justify-content-center">
+              <p class="mb-0 text-center">「記得帶回神奇動物，否則教授會翻白眼。」</p>
+            </div>
+          </div>
         </div>
+
+        <!-- 湯姆・瑞斗 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front p-2 rounded text-center bg-dark">
+              <img src="./img/p_Tom.PNG" alt="湯姆・瑞斗" class="img-fluid rounded"
+                style="height: 150px; object-fit: cover;">
+              <h6 class="mt-2">湯姆・瑞斗（佛地魔）</h6>
+            </div>
+            <div
+              class="flip-card-back bg-warning text-dark p-3 rounded d-flex align-items-center justify-content-center">
+              <p class="mb-0 text-center">「知識加上魔法，就能讓全世界傾聽你。」</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="magic-divider"></div>
+
+    <!-- 🏰 學校優勢介紹區 -->
+    <section class="container py-5 my-5">
+      <div class="text-center mb-5">
+        <h2 class="text-warning fw-bold">🏆 為什麼選擇霍格華茲？</h2>
       </div>
 
-      <div class="row align-items-center mb-5">
-        <div class="col-md-7 text-center mb-3 mb-md-0" data-aos="zoom-in-right">
-          <img src="./img/in_class_3.jpg" alt="Hogwarts Teachers" class="img-fluid rounded shadow">
+      <div class="container py-5 my-5">
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+            <img src="./img/hogwarts_night.jpg" alt="Hogwarts Castle" class="feature-img">
+          </div>
+          <div class="col-md-6 text-center text-md-start">
+            <h3 class="text-warning mb-3">歐洲三大魔法學校之一</h3>
+            <p class="text-light">百年歷史傳承，從梅林到麻瓜都耳熟能詳。想學魔法？來霍格華茲準沒錯！</p>
+          </div>
         </div>
-        <div class="col-md-5 text-center text-md-start text-light">
-          <h3 class="text-warning mb-3">優質師資與多元課程</h3>
-          <p>從魔藥學到占卜學，課程豐富又實用。世界頂尖教授坐鎮，保證學術含金量！</p>
-        </div>
-      </div>
-    </div>
 
-    <!-- 報名表單 -->
-    <div class="container d-block mx-auto my-5" style="max-width: 500px;">
-      <div class="text-center text-warning mb-3">
-        <h5>立即報名，成為霍格華茲的一員！</h5>
-      </div>
-      <div class="card bg-opacity-75">
-        <div class="card-body text-center text-white">
-          <p>姓名：</p>
-          <input type="text" class="form-control mb-3" placeholder="請輸入您的姓名">
-          <p>電話：</p>
-          <input type="tel" class="form-control mb-3" placeholder="09xx-xxx-xxx">
-          <p>電子郵件：</p>
-          <input type="email" class="form-control mb-3" placeholder="xxxxxx@gmail.com">
-          <p>留言：</p>
-          <textarea class="form-control mb-3" placeholder="想對我們說的話..."></textarea>
+        <div class="row align-items-center mb-5 flex-md-row-reverse">
+          <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-left">
+            <img src="./img/d_Gryffindor Dormitory_5.jpg" alt="Hogwarts Protection" class="feature-img">
+          </div>
+          <div class="col-md-6 text-center text-md-start">
+            <h3 class="text-warning mb-3">受魔法保護的安全校園</h3>
+            <p class="text-light">被強大防護咒環繞，以及溫馨舒適的寢室，安穩好眠就像在家一樣。</p>
+          </div>
         </div>
-        <div class="card-footer text-center m-3">
-          <button type="submit" class="btn btn-primary">提交報名</button>
+
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+            <img src="./img/in_class_3.jpg" alt="Hogwarts Teachers" class="feature-img">
+          </div>
+          <div class="col-md-6 text-center text-md-start">
+            <h3 class="text-warning mb-3">優質師資與多元課程</h3>
+            <p class="text-light">從魔藥學到占卜學，課程豐富又實用。世界頂尖教授坐鎮，保證學術含金量！</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+      <div class="magic-divider"></div>
+
+      <!-- 報名表單區塊 -->
+      <div class="container d-block mx-auto my-5" style="max-width: 550px;">
+        <div class="magic-book-border">
+          <div class="text-center text-warning mb-4 magic-title" style="font-family: 'Cinzel', serif;">
+            <h4>📜 入學申請表</h4>
+          </div>
+          <div class="card bg-opacity-75">
+            <div class="card-body text-center text-white">
+              <p>姓名：</p>
+              <input type="text" class="form-control mb-3" placeholder="請輸入您的姓名">
+              <p>電話：</p>
+              <input type="tel" class="form-control mb-3" placeholder="09xx-xxx-xxx">
+              <p>郵件：</p>
+              <input type="email" class="form-control mb-3" placeholder="wizard@hogwarts.edu">
+              <p>留言：</p>
+              <textarea class="form-control mb-3" placeholder="您想加入哪個學院？想對學校說的話..."></textarea>
+            </div>
+            <div class="card-footer text-center m-3">
+              <button type="submit" class="btn btn-warning magic-submit-btn">提交報名</button>
+            </div>
+          </div>
+        </div>
+      </div>
   </main>
   <br><br><br>
 
@@ -156,6 +270,15 @@
         zIndex: -1 // 讓粒子在最底層
       }
     });
+
+    // 報名表單
+    document.querySelector('.magic-submit-btn').addEventListener('click', function (e) {
+      e.preventDefault(); // 防止實際送出
+      setTimeout(() => {
+        alert('🎉 已收到申請！請靜候通知！');
+      }, 1000); // 等待動畫播放
+    });
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

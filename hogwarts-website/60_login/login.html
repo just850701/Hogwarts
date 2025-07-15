@@ -4,12 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登入</title>
+    <title>分院測驗</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <script src="../js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        main {
+            font-family: "Segoe UI", sans-serif;
+            position: relative;
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quiz-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .question {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffc107;  /* Bootstrap warning 同色 */
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 8px 20px;
+            border: none;
+            background-color: #4b2e83;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #result {
+            text-align: center;
+            padding: 30px;
+            min-width: 500px;
+        }
+    </style>
 
 </head>
 
@@ -35,38 +101,31 @@
                         <a class="nav-link" href="../40_activities/activities.html">活動</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../50_alumni/alumni.html">校友</a>
+                        <a class="nav-link" href="../50_alumni/alumni.html">交通</a>
                     </li>
                 </ul>
-                <a class="btn btn-outline-light mx-4" href="../60_login/login.html">登入</a>
+                <a class="btn btn-outline-light mx-4" href="../60_login/login.html">分院測驗</a>
             </div>
         </nav>
 
     </header>
 
     <main>
-
-        <div class="login-card text-center d-block mx-auto my-5">
-            <h2 class="mb-4">在校學生登入</h2>
-            <form>
-                <div class="mb-3 text-start">
-                    <label for="studentID" class="form-label">學號</label>
-                    <input type="text" class="form-control" id="studentID" placeholder="輸入你的學號">
-                </div>
-                <div class="mb-4 text-start">
-                    <label for="password" class="form-label">密碼</label>
-                    <input type="password" class="form-control" id="password" placeholder="輸入密碼">
-                </div>
-                <button type="submit" class="btn btn-gold w-100">登入</button>
-            </form>
+        <h1 class="my-4" style="color: #b297e9;">⚡ 霍格華茲分院測驗 ⚡</h1>
+        <div class="quiz-card" id="quizCard">
+            <div id="questionContainer">
+                <!-- 題目會由 JS 插入 -->
+            </div>
+            <div class="btns">
+                <button onclick="prevQuestion()" id="prevBtn">← 上一題</button>
+                <button onclick="nextQuestion()" id="nextBtn" disabled>下一題 →</button>
+            </div>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     </main>
 
     <br><br><br>
-    
+
     <a href="#" class="back-to-top" data-aos="fade-up">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
             class="bi bi-arrow-up-circle text-white text-opacity-75" viewBox="0 0 16 16">
@@ -106,6 +165,180 @@
                 zIndex: -1 // 讓粒子在最底層
             }
         });
+
+
+        // 題目主體
+        const questions = [
+            {
+                text: "1. 遇到困難時，你會怎麼做？",
+                options: {
+                    slytherin: "找方法讓自己脫困",
+                    ravenclaw: "冷靜思考對策",
+                    gryffindor: "勇敢面對挑戰",
+                    hufflepuff: "向朋友請教",
+                }
+            },
+            {
+                text: "2. 你最重視什麼價值？",
+                options: {
+                    hufflepuff: "忠誠與誠實",
+                    ravenclaw: "知識與創意",
+                    slytherin: "成就與野心",
+                    gryffindor: "正義與勇氣",
+                }
+            },
+            {
+                text: "3. 在學校你最喜歡的活動是？",
+                options: {
+                    slytherin: "領導社團與競賽",
+                    gryffindor: "體育比賽與冒險",
+                    hufflepuff: "幫助同學與合作",
+                    ravenclaw: "解謎與閱讀",
+                }
+            },
+            {
+                text: "4. 如果你撿到一本禁書，你會？",
+                options: {
+                    ravenclaw: "研究它的來源與意義",
+                    gryffindor: "馬上讀看看內容",
+                    hufflepuff: "交給老師處理",
+                    slytherin: "暗自保留並觀察其用途"
+                }
+            },
+            {
+                text: "5. 你希望畢業後成為什麼樣的人？",
+                options: {
+                    gryffindor: "英勇且讓人尊敬",
+                    slytherin: "有權力與影響力",
+                    ravenclaw: "博學且受人敬佩",
+                    hufflepuff: "溫暖且值得信任",
+                }
+            }
+        ];
+
+        let currentIndex = 0;
+        let answers = [];
+        const quizCard = document.getElementById("quizCard");
+        const initialHTML = quizCard.innerHTML; // 儲存原始 HTML
+
+        function renderQuestion() {
+            const q = questions[currentIndex];
+            const container = document.getElementById("questionContainer");
+
+            const optionsHTML = Object.entries(q.options)
+                .map(([value, label]) => `
+      <label>
+        <input type="radio" name="answer" value="${value}" onclick="selectAnswer('${value}')">
+        ${label}
+        </label>
+        `).join("");
+
+            container.innerHTML = `
+            <div class="question">${q.text}</div>
+            <div class="options">${optionsHTML}</div>
+            `;
+
+            document.getElementById("prevBtn").disabled = currentIndex === 0;
+            document.getElementById("nextBtn").disabled = !answers[currentIndex];
+            document.getElementById("nextBtn").textContent = (currentIndex === questions.length - 1) ? "查看結果" : "下一題 →";
+        }
+
+        function selectAnswer(value) {
+            answers[currentIndex] = value;
+            document.getElementById("nextBtn").disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        }
+
+        function showResult() {
+            const scores = { gryffindor: 0, ravenclaw: 0, hufflepuff: 0, slytherin: 0 };
+            answers.forEach(ans => scores[ans]++);
+            const house = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+            const messages = {
+                gryffindor: "你擁有無畏的勇氣與正直，是葛來分多的真正代表！",
+                ravenclaw: "你充滿智慧與創造力，雷文克勞歡迎你的加入！",
+                hufflepuff: "你踏實、忠誠又可靠，赫夫帕夫正是你的歸屬！",
+                slytherin: "你充滿野心與策略，史萊哲林最適合你發光發熱！"
+            };
+
+            const data = houseData[house];
+
+            document.getElementById("quizCard").innerHTML = `
+            <div id="result" class="fade-in-zoom">
+                <div class="card img-fluid" style="width:250px; margin:auto;">
+                    <img class="card-img-top" src="${data.img}" alt="${data.name}">
+                    <div class="card-body">
+                        <h4 class="card-title text-center" style="color:${data.color};">${data.name}</h4>
+                        <p class="card-text text-white">${messages[house]}</p>
+                    </div>
+                </div>
+                <button onclick="restart()" style="margin-top:20px;">重新測驗</button>
+            </div>
+        `;
+
+            // ✨ 加入灑彩帶特效
+            confetti({
+                particleCount: 120,
+                spread: 90,
+                origin: { y: 0.3 }
+            });
+        }
+
+
+        const houseData = {
+            gryffindor: {
+                name: "葛來分多",
+                color: "#c90f0f",
+                img: "../img/gryffindor.png"
+            },
+            ravenclaw: {
+                name: "雷文克勞",
+                color: "#2130ff",
+                img: "../img/ravenclaw.png"
+            },
+            hufflepuff: {
+                name: "赫夫帕夫",
+                color: "#EEE117",
+                img: "../img/hufflepuff.png"
+            },
+            slytherin: {
+                name: "史萊哲林",
+                color: "#268531",
+                img: "../img/slytherin.png"
+            }
+        };
+
+
+
+        function restart() {
+            const quizCard = document.getElementById("quizCard"); // 重新抓
+            currentIndex = 0;
+            answers = [];
+            quizCard.innerHTML = initialHTML;
+            renderQuestion();
+            // 淡入效果
+            quizCard.classList.add("fade-in");
+            setTimeout(() => quizCard.classList.remove("fade-in"), 600); // 動畫跑完移除
+        }
+
+
+        renderQuestion();
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
