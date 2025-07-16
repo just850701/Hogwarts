@@ -81,72 +81,29 @@
 
         <br><br><br>
         <div class="d-flex gap-5 flex-wrap justify-content-center custom-padding">
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Dumbledore.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">
-                        阿不思·鄧不利多</h4>
-                    <h5 class="card-text text-white">校長</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_McGonagall.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">麥米奈娃</h4>
-                    <h5 class="card-text text-white">副校長<br>變形學教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Snape.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">賽佛勒斯·石內卜</h4>
-                    <h5 class="card-text text-white">魔藥學教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Hagrid.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">魯霸·海格</h4>
-                    <h5 class="card-text text-white">奇獸飼育學教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Flitwick.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">菲留斯·孚立維</h4>
-                    <h5 class="card-text text-white">符咒學教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Lupin.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">雷木思·路平</h4>
-                    <h5 class="card-text text-white">黑魔法防禦術教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Sprout.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">帕莫娜·芽菜</h4>
-                    <h5 class="card-text text-white">藥草學教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Slughorn.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">赫瑞司·史拉轟</h4>
-                    <h5 class="card-text text-white">魔藥學教授</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:250px">
-                <img class="card-img-top" src="../img/p_Trelawney.png" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">西碧·崔老妮</h4>
-                    <h5 class="card-text text-white">占卜學教授</h5>
-                </div>
-            </div>
+            <?php
+            $conn = new mysqli('localhost', 'root', '', 'hogwarts');
+            if ($conn->connect_error) {
+                die("連線錯誤: " . $conn->connect_error);
+            }
+            $sql = "SELECT pname, title, pphoto FROM professor";
+            $result = $conn->query($sql);
 
+            while ($row = $result->fetch_assoc()) {
+                $img = !empty($row['pphoto']) ? "../professor_photos/" . htmlspecialchars($row['pphoto']) : "../img/default.jpg";
+                echo '
+                <div class="card img-fluid hvr-grow" style="width:250px">
+                    <img class="card-img-top" src="' . $img . '" alt="教授照片">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-warning">' . htmlspecialchars($row['pname']) . '</h4>
+                        <h5 class="card-text text-white">' . htmlspecialchars($row['title']) . '</h5>
+                    </div>
+                </div>';
+            }
+            $conn->close();
+            ?>
         </div>
+
     </main>
 
     <br><br><br>

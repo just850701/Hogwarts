@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>上傳教授大頭照</title>
+    <style>
+        form {
+            width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        label,
+        select,
+        input {
+            display: block;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="uploadForm" action="upload_professor_photo.php" method="post" enctype="multipart/form-data">
+        <h2>上傳/更新教授大頭照</h2>
+        <label for="professor_id">選擇教授：</label>
+        <select name="professor_id" id="professor_id" required>
+            <!-- 教授選項由 JS 動態載入 -->
+        </select>
+        <label for="photo">選擇大頭照：</label>
+        <input type="file" name="photo" id="photo" accept="image/*" required>
+        <button type="submit">上傳</button>
+    </form>
+    <script>
+        // 動態載入教授名單
+        fetch('list_professor.php')
+            .then(res => res.json())
+            .then(data => {
+                const sel = document.getElementById('professor_id');
+                data.forEach(prof => {
+                    const opt = document.createElement('option');
+                    opt.value = prof.uid;
+                    opt.textContent = prof.pname + "（" + prof.title + "）";
+                    sel.appendChild(opt);
+                });
+            });
+
+    </script>
+</body>
+
+</html>
