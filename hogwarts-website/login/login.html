@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學院</title>
+    <title>登入</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <script src="../js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -14,7 +14,7 @@
 
     <style>
         .hero {
-            background-image: url('../img/bg_4houses.jpg');
+            background-image: url('../img/bg_login.jpg');
         }
     </style>
 
@@ -48,8 +48,7 @@
                         <a class="nav-link" href="../60_test/test.html">分院測驗</a>
                     </li>
                 </ul>
-                <a class="btn btn-outline-light mx-4" href="../login/login.html">登入</a>
-
+                <a class="btn btn-outline-light mx-4" href="../60_login/login.html">登入</a>
             </div>
         </nav>
 
@@ -57,75 +56,39 @@
 
     <main>
 
-        <!-- Hero 區 -->
-        <section class="hero d-flex justify-content-center align-items-center text-center text-light">
-            <div class="fog"></div>
-            <div class="hero-text">
-                <h1 class="fw-bold text-warning py-2">學院介紹</h1>
-                <p>霍格華茲的學生被分入四個學院：葛萊分多、赫夫帕夫、雷文克勞和史萊哲林。</p>
-                <p class="fst-italic">「我們的內部必須緊密團結，不然一切就會從內部瓦解。」——分類帽</p>
-            </div>
-        </section>
-
-        <div class="magic-divider"></div>
-
         <!-- 主體 -->
-
-        <br><br><br>
-
-        <div class="d-flex gap-5 flex-wrap justify-content-center custom-padding">
-            <a href="./houses_demo.html">
-                <div class="card img-fluid hvr-grow" style="width:250px">
-                    <img class="card-img-top" src="../img/gryffindor.png" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title text-center" style="color: #c90f0f;">葛萊分多</h4>
-                        <p class="card-text text-white">
-                            代表著勇氣、膽量及騎士氣慨。
-                        </p>
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center text-warning mb-4 magic-title"
+                                style="font-family: 'Cinzel', serif;">
+                                <h4>教職員登入</h4>
+                            </div>
+                            <form>
+                                <div class="card bg-opacity-75">
+                                <div class="card-body text-center text-white">
+                                    <p>帳號：</p>
+                                    <input type="uid" class="form-control mb-3" placeholder="請輸入您的帳號">
+                                    <p>密碼：</p>
+                                    <input type="password" class="form-control mb-3" placeholder="請輸入您的密碼">
+                                </div>
+                                <div class="card-footer text-center m-3">
+                                    <button type="submit" class="btn btn-primary">登入</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </a>
-
-            <a href="./houses_demo.html#hufflepuff-section">
-                <div class="card img-fluid hvr-grow" style="width:250px">
-                    <img class="card-img-top" src="../img/hufflepuff.png" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title text-center" style="color: #EEE117;">赫夫帕夫</h4>
-                        <p class="card-text text-white">
-                            代表著努力、耐心、正義、忠誠。</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="./houses_demo.html#ravenclaw-section">
-                <div class="card img-fluid hvr-grow" style="width:250px">
-                    <img class="card-img-top" src="../img/ravenclaw.png" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title text-center" style="color: #2130ff;">雷文克勞</h4>
-                        <p class="card-text text-white">
-                            代表著智慧，創造力，學習、領悟性。
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="./houses_demo.html#slytherin-section">
-                <div class="card img-fluid hvr-grow" style="width:250px">
-                    <img class="card-img-top" src="../img/slytherin.png" alt="Card image">
-                    <div class="card-body">
-                        <h4 class="card-title text-center" style="color: #268531;">史萊哲林</h4>
-                        <p class="card-text text-white">
-                            代表著野心勃勃，精明，領導才能、老謀深算。
-                        </p>
-                    </div>
-                </div>
-            </a>
-
+            </div>
         </div>
 
     </main>
 
     <br><br><br>
+
     <a href="#" class="back-to-top" data-aos="fade-up">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
             class="bi bi-arrow-up-circle text-white text-opacity-75" viewBox="0 0 16 16">
