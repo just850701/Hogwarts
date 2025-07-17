@@ -29,26 +29,15 @@
                     <img src="../img/hogwarts_LOGO.png" alt="Hogwarts Logo" style="height: 100%;">
                 </a>
                 <ul class="navbar-nav mx-auto d-flex flex-row" style="list-style: none;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../10_houses/houses.html">學院</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../20_professor/professor.html">師資</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../30_courses/courses.html">課程</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../40_activities/activities.html">活動</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../50_alumni/alumni.html">交通</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../60_test/test.html">分院測驗</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../10_houses/houses.html">學院</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../20_professor/professor.html">師資</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../30_courses/courses.html">課程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../40_activities/activities.html">活動</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../50_alumni/alumni.html">交通</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../60_test/test.html">分院測驗</a></li>
                 </ul>
-                <a class="btn btn-outline-light mx-4" href="../60_login/login.html">登入</a>
+                <!-- 登入區 -->
+                <div id="login-area" class="mx-4 text-light"></div>
             </div>
         </nav>
 
@@ -66,18 +55,20 @@
                                 style="font-family: 'Cinzel', serif;">
                                 <h4>教職員登入</h4>
                             </div>
-                            <form>
+                            <form id="login-form">
                                 <div class="card bg-opacity-75">
-                                <div class="card-body text-center text-white">
-                                    <p>帳號：</p>
-                                    <input type="uid" class="form-control mb-3" placeholder="請輸入您的帳號">
-                                    <p>密碼：</p>
-                                    <input type="password" class="form-control mb-3" placeholder="請輸入您的密碼">
+                                    <div class="card-body text-center text-white">
+                                        <p>帳號：</p>
+                                        <input type="text" id="pid" class="form-control mb-3" placeholder="請輸入您的帳號"
+                                            pattern="\d*" required>
+                                        <p>密碼：</p>
+                                        <input type="password" id="password" class="form-control mb-3"
+                                            placeholder="請輸入您的密碼" required>
+                                    </div>
+                                    <div class="card-footer text-center m-3">
+                                        <button type="submit" class="btn btn-primary">登入</button>
+                                    </div>
                                 </div>
-                                <div class="card-footer text-center m-3">
-                                    <button type="submit" class="btn btn-primary">登入</button>
-                                </div>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -128,6 +119,71 @@
                 zIndex: -1 // 讓粒子在最底層
             }
         });
+
+
+        // 登入表單提交事件
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const pid = document.getElementById("pid").value;
+            const password = document.getElementById("password").value;
+
+            fetch("login.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ pid, password })
+            })
+                .then(res => res.text())
+                .then(text => {
+                    console.log("原始回傳內容：", text);
+
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.success) {
+                            alert("登入成功！");
+                            localStorage.setItem("professorName", data.name); // ✅ 儲存登入者名稱
+                            window.location.href = "../20_professor/professor.html"; // ✅ 導向登入成功頁
+                        } else {
+                            alert("登入失敗：" + data.message);
+                        }
+                    } catch (e) {
+                        alert("⚠️ 回傳不是 JSON，請打開 Console 看錯誤訊息");
+                        console.error("解析錯誤：", e);
+                    }
+                })
+                .catch(err => {
+                    console.error("Fetch 錯誤：", err);
+                    alert("伺服器發生錯誤，請稍後再試");
+                });
+        });
+
+        //header 判斷是否登入
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginArea = document.getElementById("login-area");
+            const professorName = localStorage.getItem("professorName");
+
+            if (professorName) {
+                // 登入狀態：顯示歡迎詞和登出按鈕
+                loginArea.innerHTML = `
+            <span class="me-2">歡迎，${professorName}</span>
+            <button class="btn btn-sm btn-warning" id="logout-btn">登出</button>
+        `;
+
+                document.getElementById("logout-btn").addEventListener("click", () => {
+                    if (confirm("確定要登出嗎？")) {
+                        localStorage.removeItem("professorName");
+                        window.location.reload(); // 或導向首頁 window.location.href = '../index.html';
+                    }
+                });
+
+            } else {
+                // 未登入狀態：顯示登入按鈕
+                loginArea.innerHTML = `
+            <a class="btn btn-outline-light" href="../60_login/login.html">登入</a>
+        `;
+            }
+        });
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

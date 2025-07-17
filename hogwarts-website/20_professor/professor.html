@@ -104,6 +104,7 @@
         fetch('../getinfo/get_professor.php')
             .then(res => res.json())
             .then(data => {
+                console.log(data); // ← 加這行，開 F12 看回傳資料內容
                 const container = document.getElementById('professor-container');
                 const searchInput = document.querySelector('.form-control');
                 const searchButton = document.getElementById('button-search');
@@ -114,33 +115,22 @@
                     col.className = 'col-md-4 mb-4';
                     col.style.width = "250px";
 
+                    let titleText = professor.title || '';
+                    if (titleText !== '校長' && professor.course_names) {
+                        titleText = `${professor.course_names} ${titleText}`;
+                    }
+
                     col.innerHTML = `
-                        <div class="card img-fluid hvr-grow" style="width:100%">
-                            <img class="card-img-top" src="../img/${professor.pphoto}" alt="${professor.pname}">
-                            <div class="card-body text-center">
-                                <h4 class="card-title text-warning">${professor.pname}</h4>
-                                <h5 class="card-text text-white">${professor.title || ''}</h5>
-                            </div>
-                        </div>
-                    `;
+        <div class="card img-fluid hvr-grow" style="width:100%">
+            <img class="card-img-top" src="../img/${professor.pphoto}" alt="${professor.pname}">
+            <div class="card-body text-center">
+                <h4 class="card-title text-warning">${professor.pname}</h4>
+                <h5 class="card-text text-white">${titleText}</h5>
+            </div>
+        </div>
+    `;
                     container.appendChild(col);
-                    allCards.push({ element: col, name: professor.pname, title: professor.title || '' });
-                });
-
-                function filterCards(keyword) {
-                    const lowerKeyword = keyword.toLowerCase();
-                    allCards.forEach(({ element, name, title }) => {
-                        const isMatch = name.toLowerCase().includes(lowerKeyword) || title.toLowerCase().includes(lowerKeyword);
-                        element.style.display = isMatch ? 'block' : 'none';
-                    });
-                }
-
-                searchInput.addEventListener('input', (e) => {
-                    filterCards(e.target.value);
-                });
-
-                searchButton.addEventListener('click', () => {
-                    filterCards(searchInput.value);
+                    allCards.push({ element: col, name: professor.pname, title: titleText });
                 });
             })
             .catch(error => {
