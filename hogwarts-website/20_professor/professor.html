@@ -52,18 +52,21 @@
         </section>
         <div class="magic-divider"></div>
 
-        <!-- 搜尋欄 -->
+        <!-- 搜尋欄和新增教授按鈕分開排列 -->
         <div class="container mt-4">
             <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="搜尋教授..." aria-label="搜尋教授"
-                            aria-describedby="button-search" />
-                        <button class="btn btn-outline-secondary" type="button" id="button-search">搜尋</button>
-                    </div>
+                <!-- 搜尋欄 -->
+                <div class="col-md-6 mb-2">
+                    <input type="text" class="form-control" placeholder="搜尋教授..." aria-label="搜尋教授" id="search-input" />
+                </div>
+
+                <!-- 新增按鈕 -->
+                <div class="col-md-2 mb-2 text-md-start text-center">
+                    <button class="btn btn-outline-warning w-100" id="add-professor-btn" type="button">新增教授</button>
                 </div>
             </div>
         </div>
+
 
         <br /><br /><br />
         <div class="d-flex gap-5 flex-wrap justify-content-center custom-padding" id="professor-container">
@@ -106,10 +109,9 @@
         fetch('../getinfo/get_professor.php')
             .then(res => res.json())
             .then(data => {
-                console.log(data); // ← 加這行，開 F12 看回傳資料內容
+                console.log(data); // 開 F12 查看資料
                 const container = document.getElementById('professor-container');
                 const searchInput = document.querySelector('.form-control');
-                const searchButton = document.getElementById('button-search');
                 const allCards = [];
 
                 data.forEach(professor => {
@@ -123,16 +125,26 @@
                     }
 
                     col.innerHTML = `
-        <div class="card img-fluid hvr-grow" style="width:100%">
-            <img class="card-img-top" src="../img/${professor.pphoto}" alt="${professor.pname}">
-            <div class="card-body text-center">
-                <h4 class="card-title text-warning">${professor.pname}</h4>
-                <h5 class="card-text text-white">${titleText}</h5>
-            </div>
-        </div>
-    `;
+                    <div class="card img-fluid hvr-grow" style="width:100%">
+                        <img class="card-img-top" src="../img/${professor.pphoto}" alt="${professor.pname}">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-warning">${professor.pname}</h4>
+                            <h5 class="card-text text-white">${titleText}</h5>
+                        </div>
+                    </div>
+                `;
                     container.appendChild(col);
                     allCards.push({ element: col, name: professor.pname, title: titleText });
+                });
+
+                // 🔍 即時搜尋功能（移除搜尋按鈕，直接輸入即篩選）
+                searchInput.addEventListener('input', () => {
+                    const keyword = searchInput.value.trim().toLowerCase();
+                    allCards.forEach(({ element, name, title }) => {
+                        const combinedText = `${name} ${title}`.toLowerCase();
+                        const shouldShow = combinedText.includes(keyword);
+                        element.style.display = shouldShow ? '' : 'none';
+                    });
                 });
             })
             .catch(error => {
@@ -140,7 +152,6 @@
             });
 
         // auth.js
-
         document.addEventListener("DOMContentLoaded", () => {
             const loginArea = document.getElementById("login-area");
             const professorName = localStorage.getItem("professorName");
@@ -148,9 +159,9 @@
             if (professorName) {
                 // ✅ 已登入狀態，顯示名稱＋登出
                 loginArea.innerHTML = `
-      <span class="me-2">👨‍🏫 ${professorName}</span>
-      <button id="logout-btn" class="btn btn-sm btn-outline-light">登出</button>
-    `;
+                <span class="me-2">👨‍🏫 ${professorName}</span>
+                <button id="logout-btn" class="btn btn-sm btn-outline-light">登出</button>
+            `;
 
                 document.getElementById("logout-btn").addEventListener("click", () => {
                     if (confirm("確定要登出嗎？")) {
@@ -158,16 +169,31 @@
                         location.reload(); // 重新整理頁面
                     }
                 });
-
             } else {
                 // ❌ 未登入狀態，顯示登入按鈕
                 loginArea.innerHTML = `
-      <a href="../login/login.html" class="btn btn-sm btn-outline-warning">登入</a>
-    `;
+                <a href="../login/login.html" class="btn btn-sm btn-outline-warning">登入</a>
+            `;
             }
         });
 
+
+        // ✅ 新增教授按鈕功能
+        document.getElementById("add-professor-btn").addEventListener("click", () => {
+            const professorName = localStorage.getItem("professorName");
+            if (professorName) {
+                // ✅ 有登入就跳轉到新增頁面
+                window.location.href = "../getinfo/add_professor.html";
+            } else {
+                // ❌ 未登入 => 導向登入頁，並附上 returnUrl
+                alert("請先登入！");
+                window.location.href = "../login/login.html";
+            }
+        });
+
+
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>AOS.init();</script>

@@ -51,18 +51,22 @@
     </section>
     <div class="magic-divider"></div>
 
-    <!-- 搜尋欄 -->
+    <!-- 搜尋欄和新增課程按鈕 -->
     <div class="container mt-4">
       <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="搜尋課程..." aria-label="搜尋課程"
-              aria-describedby="button-search" />
-            <button class="btn btn-outline-secondary" type="button" id="button-search">搜尋</button>
-          </div>
+        <!-- 搜尋欄 -->
+        <div class="col-md-6 mb-2">
+          <input type="text" class="form-control" placeholder="搜尋課程..." id="search-course-input" />
+        </div>
+
+        <!-- 新增課程按鈕 -->
+        <div class="col-md-2 mb-2 text-md-start text-center">
+          <button class="btn btn-outline-warning w-100" id="add-course-btn" type="button">新增課程</button>
         </div>
       </div>
     </div>
+
+
 
     <!-- 課程卡片容器 -->
     <div class="container mt-4">
@@ -103,13 +107,12 @@
       fullScreen: { enable: true, zIndex: -1 }
     });
 
-    // 載入課程資料並加上搜尋功能
+    // 載入課程資料並加上即時搜尋功能（無搜尋按鈕）
     fetch('../getinfo/get_courses.php')
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById('courses-container');
         const searchInput = document.querySelector('.form-control');
-        const searchButton = document.getElementById('button-search');
         const allCards = [];
 
         data.forEach(course => {
@@ -118,32 +121,30 @@
           col.style.width = "350px";
 
           col.innerHTML = `
-            <div class="card img-fluid hvr-grow" style="width:100%">
-              <img class="card-img-top" src="../img/${course.image}" alt="${course.cname}">
-              <div class="card-body text-center">
-                <h4 class="card-title text-warning">${course.cname}</h4>
-                <h5 class="card-text text-white">${course.description || ''}</h5>
-              </div>
-            </div>
-          `;
+        <div class="card img-fluid hvr-grow" style="width:100%">
+          <img class="card-img-top" src="../img/${course.image}" alt="${course.cname}">
+          <div class="card-body text-center">
+            <h4 class="card-title text-warning">${course.cname}</h4>
+            <h5 class="card-text text-white">${course.description || ''}</h5>
+          </div>
+        </div>
+      `;
           container.appendChild(col);
-          allCards.push({ element: col, name: course.cname, description: course.description || '' });
-        });
-
-        function filterCourses(keyword) {
-          const lowerKeyword = keyword.toLowerCase();
-          allCards.forEach(({ element, name, description }) => {
-            const isMatch = name.toLowerCase().includes(lowerKeyword) || description.toLowerCase().includes(lowerKeyword);
-            element.style.display = isMatch ? 'block' : 'none';
+          allCards.push({
+            element: col,
+            name: course.cname,
+            description: course.description || ''
           });
-        }
-
-        searchInput.addEventListener('input', (e) => {
-          filterCourses(e.target.value);
         });
 
-        searchButton.addEventListener('click', () => {
-          filterCourses(searchInput.value);
+        // ✅ 即時搜尋功能（輸入自動篩選）
+        searchInput.addEventListener('input', (e) => {
+          const keyword = e.target.value.trim().toLowerCase();
+          allCards.forEach(({ element, name, description }) => {
+            const combinedText = `${name} ${description}`.toLowerCase();
+            const isMatch = combinedText.includes(keyword);
+            element.style.display = isMatch ? '' : 'none';
+          });
         });
       })
       .catch(error => {
@@ -177,6 +178,25 @@
     `;
       }
     });
+
+    // ✅ 新增課程按鈕功能
+    document.addEventListener("DOMContentLoaded", () => {
+      const addCourseBtn = document.getElementById("add-course-btn");
+      if (addCourseBtn) {
+        addCourseBtn.addEventListener("click", () => {
+          const professorName = localStorage.getItem("professorName");
+          if (professorName) {
+            // ✅ 已登入，導向新增課程頁
+            window.location.href = "../getinfo/add_course.html";
+          } else {
+            // ❌ 未登入，導向登入頁並加上 returnUrl
+            alert("請先登入！");
+            window.location.href = "../login/login.html";
+          }
+        });
+      }
+    });
+
 
   </script>
 

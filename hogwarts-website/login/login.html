@@ -141,8 +141,22 @@
                         const data = JSON.parse(text);
                         if (data.success) {
                             alert("登入成功！");
-                            localStorage.setItem("professorName", data.name); // ✅ 儲存登入者名稱
-                            window.location.href = "../20_professor/professor.html"; // ✅ 導向登入成功頁
+                            localStorage.setItem("professorName", data.name);
+
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const returnUrl = urlParams.get("returnUrl");
+
+                            try {
+                                const decodedUrl = decodeURIComponent(returnUrl);
+                                if (decodedUrl && decodedUrl.startsWith("http")) {
+                                    window.location.href = decodedUrl;
+                                } else {
+                                    throw new Error("不安全或無效的 URL");
+                                }
+                            } catch (err) {
+                                console.warn("⚠️ 跳轉錯誤，導回首頁：", err);
+                                window.location.href = "../index.html";
+                            }
                         } else {
                             alert("登入失敗：" + data.message);
                         }
@@ -179,7 +193,7 @@
             } else {
                 // 未登入狀態：顯示登入按鈕
                 loginArea.innerHTML = `
-            <a class="btn btn-outline-light" href="../60_login/login.html">登入</a>
+            <a class="btn btn-outline-light" href="login.html">登入</a>
         `;
             }
         });
