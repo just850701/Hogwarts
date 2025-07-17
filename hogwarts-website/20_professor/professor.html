@@ -34,9 +34,11 @@
                     <li class="nav-item"><a class="nav-link" href="../50_alumni/alumni.html">交通</a></li>
                     <li class="nav-item"><a class="nav-link" href="../60_test/test.html">分院測驗</a></li>
                 </ul>
-                <a class="btn btn-outline-light mx-4" href="../login/login.html">登入</a>
+                <!-- 登入區 -->
+                <div id="login-area" class="mx-4 text-light"></div>
             </div>
         </nav>
+
     </header>
 
     <main>
@@ -136,10 +138,41 @@
             .catch(error => {
                 console.error('教授資料載入失敗：', error);
             });
+
+        // auth.js
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginArea = document.getElementById("login-area");
+            const professorName = localStorage.getItem("professorName");
+
+            if (professorName) {
+                // ✅ 已登入狀態，顯示名稱＋登出
+                loginArea.innerHTML = `
+      <span class="me-2">👨‍🏫 ${professorName}</span>
+      <button id="logout-btn" class="btn btn-sm btn-outline-light">登出</button>
+    `;
+
+                document.getElementById("logout-btn").addEventListener("click", () => {
+                    if (confirm("確定要登出嗎？")) {
+                        localStorage.removeItem("professorName");
+                        location.reload(); // 重新整理頁面
+                    }
+                });
+
+            } else {
+                // ❌ 未登入狀態，顯示登入按鈕
+                loginArea.innerHTML = `
+      <a href="../login/login.html" class="btn btn-sm btn-outline-warning">登入</a>
+    `;
+            }
+        });
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>AOS.init();</script>
+    <script src="./js/auth.js"></script>
+
 </body>
 
 </html>

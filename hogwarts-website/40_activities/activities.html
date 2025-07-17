@@ -28,27 +28,15 @@
                     <img src="../img/hogwarts_LOGO.png" alt="Hogwarts Logo" style="height: 100%;">
                 </a>
                 <ul class="navbar-nav mx-auto d-flex flex-row" style="list-style: none;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../10_houses/houses.html">學院</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../20_professor/professor.html">師資</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../30_courses/courses.html">課程</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../40_activities/activities.html">活動</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../50_alumni/alumni.html">交通</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../60_test/test.html">分院測驗</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../10_houses/houses.html">學院</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../20_professor/professor.html">師資</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../30_courses/courses.html">課程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../40_activities/activities.html">活動</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../50_alumni/alumni.html">交通</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../60_test/test.html">分院測驗</a></li>
                 </ul>
-                <a class="btn btn-outline-light mx-4" href="../login/login.html">登入</a>
-
+                <!-- 登入區 -->
+                <div id="login-area" class="mx-4 text-light"></div>
             </div>
         </nav>
 
@@ -67,18 +55,6 @@
         <div class="magic-divider"></div>
 
         <!-- 主體 -->
-
-        <div class="container mt-4">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="搜尋活動..." aria-label="搜尋課程"
-                            aria-describedby="button-search">
-                        <button class="btn btn-outline-secondary" type="button" id="button-search">搜尋</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <br><br><br>
 
@@ -209,12 +185,43 @@
                 zIndex: -1 // 讓粒子在最底層
             }
         });
+
+        // auth.js
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginArea = document.getElementById("login-area");
+            const professorName = localStorage.getItem("professorName");
+
+            if (professorName) {
+                // ✅ 已登入狀態，顯示名稱＋登出
+                loginArea.innerHTML = `
+      <span class="me-2">👨‍🏫 ${professorName}</span>
+      <button id="logout-btn" class="btn btn-sm btn-outline-light">登出</button>
+    `;
+
+                document.getElementById("logout-btn").addEventListener("click", () => {
+                    if (confirm("確定要登出嗎？")) {
+                        localStorage.removeItem("professorName");
+                        location.reload(); // 重新整理頁面
+                    }
+                });
+
+            } else {
+                // ❌ 未登入狀態，顯示登入按鈕
+                loginArea.innerHTML = `
+      <a href="../login/login.html" class="btn btn-sm btn-outline-warning">登入</a>
+    `;
+            }
+        });
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
+    <script src="./js/auth.js"></script>
+
 
 </body>
 
