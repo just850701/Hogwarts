@@ -33,7 +33,7 @@
                         <a class="nav-link" href="../10_houses/houses.html">學院</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../20_professor/professor.html">師資</a>
+                        <a class="nav-link" href="../20_professor/professor.php">師資</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../30_courses/courses.html">課程</a>
@@ -80,63 +80,12 @@
         </div>
 
         <br><br><br>
-        <div class="d-flex gap-5 flex-wrap justify-content-center custom-padding">
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_Patronus_Charm.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">黑魔法防禦術</h4>
-                    <h5 class="card-text text-white">教導學生如何抵禦黑魔法，還有保護他們不受黑暗的魔法生物（如吸血鬼、狼人、黑妖精等）傷害。</h5>
-                </div>
+        <div class="container mt-4">
+            <div class="row justify-content-center" id="courses-container">
+                <!-- JavaScript 會把課程卡片放在這裡 -->
             </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_cat.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">變形學</h4>
-                    <h5 class="card-text text-white">學習各種變形咒的科目，例如將物品變成另一物品，甚至動物。</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_Wingardium Leviosa.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">符咒學</h4>
-                    <h5 class="card-text text-white">是一門教授如何開發魔法、使用咒語的課程。</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_potion.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">魔藥學</h4>
-                    <h5 class="card-text text-white">調製魔藥的課程，需要在正確的時間和溫度下正確地混合、攪拌成分。</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_herbology.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">藥草學</h4>
-                    <h5 class="card-text text-white">針對魔法植物的研究，以及如何辨認、照料、利用和對抗它們。</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_A History of Magic.PNG" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">魔法史</h4>
-                    <h5 class="card-text text-white">對魔法歷史的研究，關於巫師歷史上重大事件的講課，其主題包括妖精叛亂、巨人戰爭和巫師保密的起源。</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_flying.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">飛行學</h4>
-                    <h5 class="card-text text-white">教導學生如何使用飛天掃帚飛行，為一年級學生的特別必修。</h5>
-                </div>
-            </div>
-            <div class="card img-fluid hvr-grow" style="width:350px">
-                <img class="card-img-top" src="../img/l_Care of Magical Creatures.jpg" alt="Card image">
-                <div class="card-body  text-center">
-                    <h4 class="card-title text-warning">奇獸飼育學</h4>
-                    <h5 class="card-text text-white">教導學生如何辨認及照顧奇獸的課程。</h5>
-                </div>
-            </div>
+        </div>
+
 
         </div>
     </main>
@@ -182,7 +131,33 @@
                 zIndex: -1 // 讓粒子在最底層
             }
         });
+
+        fetch('../getinfo/get_courses.php')
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('courses-container');
+                data.forEach(course => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-4 mb-4';
+
+                    col.innerHTML = `
+                <div class="card img-fluid hvr-grow" style="width:100%">
+                    <img class="card-img-top" src="../img/${course.image}" alt="${course.cname}">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-warning">${course.cname}</h4>
+                        <h5 class="card-text text-white">${course.description || ''}</h5>
+                    </div>
+                </div>
+            `;
+                    container.appendChild(col);
+                });
+            })
+            .catch(error => {
+                console.error('課程資料載入失敗：', error);
+            });
+
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>

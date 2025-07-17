@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>新增課程</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h2 class="mb-4 text-warning">新增課程</h2>
+        <form action="upload_course.php" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="cname" class="form-label">課程名稱</label>
+                <input type="text" class="form-control" id="cname" name="cname" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">課程介紹</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">課程圖片</label>
+                <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-warning">送出課程</button>
+        </form>
+    </div>
+</body>
+</html>
