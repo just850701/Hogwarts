@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>新增教授</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h2 class="mb-4 text-warning">新增教授</h2>
+        <form action="upload_professor.php" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="pname" class="form-label">教授名稱</label>
+                <input type="text" class="form-control" id="pname" name="pname" required>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">職稱</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">教授照片</label>
+                <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-warning">送出教授資料</button>
+        </form>
+    </div>
+</body>
+</html>
